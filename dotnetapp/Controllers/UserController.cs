@@ -10,11 +10,11 @@ namespace dotnetapp.Controllers
 
     public class UserController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext context;
 
-        public UserController(ApplicationDbContext context)
+        public UserController(ApplicationDbContext _context)
         {
-            _context = context;
+            context = _context;
         }
 
         [HttpGet]
@@ -26,10 +26,17 @@ namespace dotnetapp.Controllers
             return Ok(data);
         }
 
-        [HttpGet]
+        [HttpPost]
+        [Route("UserLogin")]
 
-        piblic IActionResult Get() {
+        public IActionResult Login() {
+            return Ok();
+        }
 
+        [HttpPost]
+        [Route("UserRegister")]
+        public IActionResult Register() {
+            return Ok();
         }
 
 
