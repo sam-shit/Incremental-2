@@ -106,7 +106,7 @@ namespace dotnetapp.Controllers
             if(ModelState.IsValid)
             {
                 try{
-                    context.Teams.Add(Player);
+                    context.Players.Add(Player);
                     context.SaveChanges();
  
                 }
@@ -117,6 +117,27 @@ namespace dotnetapp.Controllers
             }
             return Created("Record Added",Player);
  
+        }
+
+        [HttpPut]
+        [Route("EditPlayer/{id}")]
+        public IActionResult PutPlayer(int id, Player Player)
+        {
+            if(ModelState.IsValid)
+            {
+                Player mv = context.Players.Find(id);
+                mv.Name = Player.Name;
+                mv.Age = Player.Age;
+                mv.Category = Player.Category;
+                mv.BiddingPrice = Player.BiddingPrice;
+                context.SaveChanges();
+                return Ok();
+               
+ 
+ 
+ 
+            }
+            return BadRequest("Unable to Edit Record");
         }
 
     }
