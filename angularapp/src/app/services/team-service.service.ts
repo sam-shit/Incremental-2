@@ -35,6 +35,8 @@ export class TeamServiceService {
     return this.httpclient.post<ITeam>(this.url + '/AddTeam', team, this.httpOptions)
   }
 
+  EditTeam(id : number)
+
 
 
 }
