@@ -1,3 +1,5 @@
 <p>find-team works!</p>
-<h3>ID : {{teamdata.id}}</h3>
-<h3>Name : {{teamdata.name}}</h3>
+<h3>ID : {{teamdata.teamId}}</h3>
+<h3>Name : {{teamdata.teamName}}</h3>
+<p *ngFor="let m in playerdata">Name : {{m.name}}</p>
+<p *ngFor="let m in playerdata">Name : {{m.biddingPrice}}</p>
