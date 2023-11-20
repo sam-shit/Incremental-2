@@ -156,5 +156,15 @@ namespace dotnetapp.Controllers
            
         }
 
+        [HttpGet]
+        [Route("DisplayTeamPlayers/(id)")]
+ 
+        public IActionResult GetMovieDetail(int id)
+        {
+            var data = from d in context.Players where d.TeamId == id select new{
+                Name = d.Name, Age = d.Age, Category = d.Category, BiddingPrice = d.BiddingPrice};
+                return Ok(data);
+        }
+
     }
 }
