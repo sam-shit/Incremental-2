@@ -13,6 +13,7 @@ export class ListTeamsComponent implements OnInit {
 
   constructor(private ms : TeamServiceService) {
       this.ms.getTeams().subscribe(data => {this.teamdata.push(...data)})
+      console.log(this.teamdata)
   }
 
   ngOnInit(): void {
