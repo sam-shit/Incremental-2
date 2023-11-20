@@ -10,6 +10,7 @@
         <tr *ngFor="let m of teamdata">
             <td>{{m.teamId}}</td>
             <td>{{m.teamName}}</td>
+            <td><a [routerLink]="['/listteam/', m.id]"></a></td>
         </tr>
     </tbody>
 </table>

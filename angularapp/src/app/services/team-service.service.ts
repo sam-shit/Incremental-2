@@ -16,5 +16,10 @@ export class TeamServiceService {
     return this.httpclient.get<ITeam[]>(this.url + '/ListTeam')
   }
 
+  getTeam(id : number) : Observable<ITeam> {
+    return this.httpclient.get<ITeam>(this.url + '/ListTeam/' + id)
+  }
+
+
 
 }
