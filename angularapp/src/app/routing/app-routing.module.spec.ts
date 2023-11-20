@@ -7,7 +7,7 @@ import { HomeComponent } from "../home/home.component";
 import { Location } from "@angular/common";
 import { AdminComponent } from "../admin/admin.component";
 import { OrganizerComponent } from "../organizer/organizer.component";
-import { LoginComponent } from "../login/login.component";
+import { LoginComponent } from "../Login/login.component";
 import { RegistrationComponent } from "../registration/registration.component";
 import { ErrorComponent } from "../error/error.component";
 // import { } from "./navbar/navbar.component";
