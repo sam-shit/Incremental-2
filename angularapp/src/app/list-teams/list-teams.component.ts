@@ -1,5 +1,5 @@
 import { Component, IterableDiffers, OnInit } from '@angular/core';
-import { TeamServiceService } from '../service/team-service.service';
+import { TeamServiceService } from '../services/team-service.service';
 import { ITeam } from '../model/iteam';
 
 @Component({
