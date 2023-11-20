@@ -14,7 +14,13 @@ namespace dotnetapp.Controllers
     [Route("/[controller]")]
     public class AdminController : ControllerBase
     {
-       ApplicationDbContext context = new ApplicationDbContext();
+        private readonly ApplicationDbContext context;
+    //    ApplicationDbContext context = new ApplicationDbContext();
+
+        public AdminController(ApplicationDbContext _context)
+        {
+            context = _context;
+        }
 
         [HttpGet]
  
@@ -91,6 +97,26 @@ namespace dotnetapp.Controllers
                 return Ok();
  
            
+        }
+
+        [HttpPost]
+        [Route("AddPlayer")]
+        public IActionResult Post(Player Player)
+        {
+            if(ModelState.IsValid)
+            {
+                try{
+                    context.Teams.Add(Player);
+                    context.SaveChanges();
+ 
+                }
+                catch(System.Exception ex){
+                    return BadRequest(ex.InnerException.Message);
+ 
+                }
+            }
+            return Created("Record Added",Player);
+ 
         }
 
     }
