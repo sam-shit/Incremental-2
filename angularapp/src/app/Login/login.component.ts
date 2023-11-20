@@ -14,9 +14,9 @@ export class LoginComponent implements OnInit {
 
 
   constructor(private ls : AuthService, private route :Router, private fm : FormGroup) { }
-  this.fm.group(
-    username : "Username Required", Validators.required
-  )
+  // this.fm.group(
+  //   username : "Username Required", Validators.required
+  // )
   login(){
     this.ls.login(this.username,this.password).subscribe();
   }
