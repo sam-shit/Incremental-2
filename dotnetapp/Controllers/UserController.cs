@@ -17,6 +17,23 @@ namespace dotnetapp.Controllers
             _context = context;
         }
 
+        [HttpGet]
+ 
+        [Route("ListTeam")]
+        public IActionResult Get()
+        {
+            var data=from m in context.Teams select m;
+            return Ok(data);
+        }
+
+        [HttpGet]
+
+        piblic IActionResult Get() {
+
+        }
+
+
+
         
     }
 }
