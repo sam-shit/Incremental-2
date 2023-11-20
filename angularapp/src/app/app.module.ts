@@ -10,6 +10,7 @@ import { LoginComponent } from './Login/login.component';
 import { HomeComponent } from './home/home.component';
 import { FindTeamComponent } from './find-team/find-team.component';
 import { AddPlayerComponent } from './add-player/add-player.component';
+import { AddTeamComponent } from './add-team/add-team.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AddPlayerComponent } from './add-player/add-player.component';
     LoginComponent,
     HomeComponent,
     FindTeamComponent,
-    AddPlayerComponent
+    AddPlayerComponent,
+    AddTeamComponent
   ],
   imports: [
     BrowserModule,

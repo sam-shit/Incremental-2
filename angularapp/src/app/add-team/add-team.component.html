@@ -1,0 +1,10 @@
+<p>create-detail works!</p>
+<form (ngSubmit)="saveData(teamdetail)" #detailForm="ngForm">
+    <div>
+        <label for="name"></label>
+        <input type="text" name="name" id="name" placeholder="name" [(ngModel)]="teamdetail.teamName">
+    </div>
+
+
+    <input type="submit" value="Save Details">
+</form>

@@ -31,6 +31,10 @@ export class TeamServiceService {
     return this.httpclient.post<IPlayer>(this.url + '/AddPlayer', player, this.httpOptions)
   }
 
+  AddTeam(team : ITeam) : Observable<ITeam> {
+    return this.httpclient.post<ITeam>(this.url + '/AddTeam', team, this.httpOptions)
+  }
+
 
 
 }
