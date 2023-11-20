@@ -14,7 +14,7 @@ namespace dotnetapp.Controllers
     [Route("/[controller]")]
     public class AdminController : ControllerBase
     {
-       MovieContext context=new ApplicationDbContext();
+       ApplicationDbContext context = new ApplicationDbContext();
 
         [HttpGet]
  
@@ -35,7 +35,7 @@ namespace dotnetapp.Controllers
             {
                 return BadRequest("Id cannot be null");
             }
-            var data=(from m in context.Teams where m.Id==id select m).FirstOrDefault();
+            var data=(from m in context.Teams where m.TeamId==id select m).FirstOrDefault();
             // var data=context.Teams.Find(id);
             if(data==null)
             {
@@ -46,12 +46,12 @@ namespace dotnetapp.Controllers
         }
         [HttpPost]
         [Route("AddTeam")]
-        public IActionResult Post(Movie movie)
+        public IActionResult Post(Team Team)
         {
             if(ModelState.IsValid)
             {
                 try{
-                    context.Teams.Add(movie);
+                    context.Teams.Add(Team);
                     context.SaveChanges();
  
                 }
@@ -60,19 +60,17 @@ namespace dotnetapp.Controllers
  
                 }
             }
-            return Created("Record Added",movie);
+            return Created("Record Added",Team);
  
         }
         [HttpPut]
         [Route("EditTeam/{id}")]
-        public IActionResult Put(int id,Movie movie)
+        public IActionResult Put(int id, Team Team)
         {
             if(ModelState.IsValid)
             {
-                Movie mv=context.Teams.Find(id);
-                mv.Name=movie.Name;
-                mv.Rating=movie.Rating;
-                mv.YearRelease=movie.YearRelease;
+                Team mv = context.Teams.Find(id);
+                mv.TeamName = Team.TeamName;
                 context.SaveChanges();
                 return Ok();
                
@@ -83,47 +81,17 @@ namespace dotnetapp.Controllers
             return BadRequest("Unable to Edit Record");
         }
         [HttpDelete]
-        [Route("DeleteMovie/{id}")]
+        [Route("DeleteTeam/{id}")]
         public IActionResult Delete(int id)
         {
-            // try{
-                // var details=context.Details.Where(d=>d.MovieId==id);
-                // if(details.Count() != 0)
-                // {
-                //     throw new Exception("Cannot delete movie");
-                // }
+  
                 var data=context.Teams.Find(id);
                 context.Teams.Remove(data);
                 context.SaveChanges();
                 return Ok();
-            // }
-            // catch(System.Exception ex)
-            // {
-            //     return BadRequest(ex.Message);
-            // }
+ 
            
         }
 
-        [HttpGet]
-        [Route("DisplayTeams/Rating/Year")]
-        public IActionResult GetDisplayTeams(int rating, int year) {
-            var data = from m in context.Teams where m.Rating == rating && m.YearRelease == year select m;
-            if(data.Count() == 0) {
-                return NotFound($"No Teams in {rating} for the year {year}");
-            }
-
-            return Ok(data);
-        }
-
-        [HttpGet]
-        [Route("DisplayByRating")]
-        public IActionResult GetDisplayByRating([FromQuery] int rating) {
-            var data = context.Teams.Where(m => m.Rating == rating);
-            if(data.Count() == 0) {
-                return NotFound($"No Movie Found");
-            }
-
-            return Ok(data);
-        }
     }
 }
