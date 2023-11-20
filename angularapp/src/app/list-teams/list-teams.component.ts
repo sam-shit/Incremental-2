@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, IterableDiffers, OnInit } from '@angular/core';
+import { TeamServiceService } from '../service/team-service.service';
+import { ITeam } from '../model/iteam';
 
 @Component({
   selector: 'app-list-teams',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListTeamsComponent implements OnInit {
 
-  constructor() { }
+  teamdata : ITeam[] = []
+
+  constructor(private ms : TeamServiceService) {
+      this.ms.getTeams().subscribe(data => {this.teamdata.push(...data)})
+  }
 
   ngOnInit(): void {
   }

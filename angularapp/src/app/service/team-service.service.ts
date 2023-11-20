@@ -12,8 +12,8 @@ export class TeamServiceService {
 
   private url = 'https://8080-addabcfedcbbadfacbbecabcdadeafbbdcaeafe.premiumproject.examly.io/Admin'
 
-  getTeams() : Observable<ITeam> {
-    return this.httpclient.get<ITeam>(this.url + '/ListTeam')
+  getTeams() : Observable<ITeam[]> {
+    return this.httpclient.get<ITeam[]>(this.url + '/ListTeam')
   }
 
 
