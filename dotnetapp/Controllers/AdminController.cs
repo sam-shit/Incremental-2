@@ -18,26 +18,25 @@ namespace dotnetapp.Controllers
 
         [HttpGet]
  
-        [Route("ListMovies")]
+        [Route("ListTeam")]
         public IActionResult Get()
         {
-            // var data=context.Movies.ToList();
-            var data=from m in context.Movies select m;
+            var data=from m in context.Teams select m;
             return Ok(data);
         }
  
         [HttpGet]
  
-        [Route("ListMovies/{id}")]
+        [Route("ListTeam/{id}")]
         public IActionResult Get(int id)
         {
-            // var data=context.Movies.ToList();
+            // var data=context.Teams.ToList();
             if(id==null)
             {
                 return BadRequest("Id cannot be null");
             }
-            var data=(from m in context.Movies where m.Id==id select m).FirstOrDefault();
-            // var data=context.Movies.Find(id);
+            var data=(from m in context.Teams where m.Id==id select m).FirstOrDefault();
+            // var data=context.Teams.Find(id);
             if(data==null)
             {
                 return NotFound($"Movie {id} not found");
@@ -46,13 +45,13 @@ namespace dotnetapp.Controllers
            
         }
         [HttpPost]
-        [Route("AddMovie")]
+        [Route("AddTeam")]
         public IActionResult Post(Movie movie)
         {
             if(ModelState.IsValid)
             {
                 try{
-                    context.Movies.Add(movie);
+                    context.Teams.Add(movie);
                     context.SaveChanges();
  
                 }
@@ -65,12 +64,12 @@ namespace dotnetapp.Controllers
  
         }
         [HttpPut]
-        [Route("EditMovie/{id}")]
+        [Route("EditTeam/{id}")]
         public IActionResult Put(int id,Movie movie)
         {
             if(ModelState.IsValid)
             {
-                Movie mv=context.Movies.Find(id);
+                Movie mv=context.Teams.Find(id);
                 mv.Name=movie.Name;
                 mv.Rating=movie.Rating;
                 mv.YearRelease=movie.YearRelease;
@@ -93,8 +92,8 @@ namespace dotnetapp.Controllers
                 // {
                 //     throw new Exception("Cannot delete movie");
                 // }
-                var data=context.Movies.Find(id);
-                context.Movies.Remove(data);
+                var data=context.Teams.Find(id);
+                context.Teams.Remove(data);
                 context.SaveChanges();
                 return Ok();
             // }
@@ -106,11 +105,11 @@ namespace dotnetapp.Controllers
         }
 
         [HttpGet]
-        [Route("DisplayMovies/Rating/Year")]
-        public IActionResult GetDisplayMovies(int rating, int year) {
-            var data = from m in context.Movies where m.Rating == rating && m.YearRelease == year select m;
+        [Route("DisplayTeams/Rating/Year")]
+        public IActionResult GetDisplayTeams(int rating, int year) {
+            var data = from m in context.Teams where m.Rating == rating && m.YearRelease == year select m;
             if(data.Count() == 0) {
-                return NotFound($"No Movies in {rating} for the year {year}");
+                return NotFound($"No Teams in {rating} for the year {year}");
             }
 
             return Ok(data);
@@ -119,7 +118,7 @@ namespace dotnetapp.Controllers
         [HttpGet]
         [Route("DisplayByRating")]
         public IActionResult GetDisplayByRating([FromQuery] int rating) {
-            var data = context.Movies.Where(m => m.Rating == rating);
+            var data = context.Teams.Where(m => m.Rating == rating);
             if(data.Count() == 0) {
                 return NotFound($"No Movie Found");
             }
