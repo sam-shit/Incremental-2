@@ -1,12 +1,12 @@
 <p>create-detail works!</p>
-<form (ngSubmit)="saveData(playerdata)" #detailForm="ngForm">
+<form (ngSubmit)="saveData(playerdetail)" #detailForm="ngForm">
     <div>
         <label for="name"></label>
-        <input type="text" name="name" id="name" placeholder="name" [(ngModel)]="playerdata.name" #actor="ngModel">
+        <input type="text" name="name" id="name" placeholder="name" [(ngModel)]="playerdetail.name">
     </div>
 
     <div>
-        <select name="teamid" id="teamid" [(ngModel)]="playerdata.teamid">
+        <select name="teamid" id="teamid" [(ngModel)]="playerdetail.teamid">
             <option *ngFor="let sd of showdata" [value]="sd.teamId">
                 {{sd.teamName}}
             </option>
@@ -14,17 +14,21 @@
     </div>
 
     <div>
-        <label for="Gender"></label>
-        <input type="text" name="gender" id="gender" placeholder="Gender" [(ngModel)]="moviedetail.gender" #gender="ngModel">
+        <label for="age"></label>
+        <input type="text" name="age" id="age" placeholder="age" [(ngModel)]="playerdetail.age">
     </div>
 
     <div>
-        <select name="role" id="role" [(ngModel)]="moviedetail.role">
-            <option value="Hero">Hero</option>
-            <option value="Villian">Villian</option>
-
-        </select>
+        <label for="category"></label>
+        <input type="text" name="category" id="category" placeholder="category" [(ngModel)]="playerdetail.category">
     </div>
+
+    <div>
+        <label for="biddingprice"></label>
+        <input type="text" name="biddingprice" id="biddingprice" placeholder="biddingprice" [(ngModel)]="playerdetail.biddingprice">
+    </div>
+
+
 
     <input type="submit" value="Save Details">
 </form>
