@@ -25,7 +25,7 @@ namespace dotnetapp.Controllers
         [HttpGet]
  
         [Route("ListTeam")]
-        public IActionResult Get()
+        public IActionResult GetTeams()
         {
             var data=from m in context.Teams select m;
             return Ok(data);
@@ -99,6 +99,9 @@ namespace dotnetapp.Controllers
            
         }
 
+
+        // ------------Player Controller---------------------
+
         [HttpPost]
         [Route("AddPlayer")]
         public IActionResult Post(Player Player)
@@ -138,6 +141,19 @@ namespace dotnetapp.Controllers
  
             }
             return BadRequest("Unable to Edit Record");
+        }
+
+        [HttpDelete]
+        [Route("DeletePlayer/{id}")]
+        public IActionResult DeletePlayer(int id)
+        {
+  
+                var data=context.Players.Find(id);
+                context.Players.Remove(data);
+                context.SaveChanges();
+                return Ok();
+ 
+           
         }
 
     }
