@@ -2,7 +2,7 @@ export interface IPlayer {
     id : number
     teamid : number
     name : string
-    age : string
+    age : number
     category : string
     biddingprice : number
 }

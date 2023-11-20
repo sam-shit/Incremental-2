@@ -1,5 +1,5 @@
 export interface ITeam {
-    id : number
-    name : string
+    teamId : number
+    teamName : string
     maxixmunBudget : number
 }

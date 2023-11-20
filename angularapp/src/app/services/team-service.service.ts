@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ITeam } from '../model/iteam';
 import { IPlayer } from '../model/iplayer';
@@ -23,6 +23,12 @@ export class TeamServiceService {
 
   getPlayer(id : number) : Observable<IPlayer[]> {
     return this.httpclient.get<IPlayer[]>(this.url + '/DisplayTeamPlayers/(id)?id=' + id)
+  }
+
+  httpOptions = {headers : new HttpHeaders({'Content-type': 'application/json'})}
+
+  AddPlayer(player : IPlayer) : Observable<IPlayer> {
+    return this.httpclient.post<IPlayer>(this.url + '/AddPlayer', player, this.httpOptions)
   }
 
 

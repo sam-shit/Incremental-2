@@ -5,7 +5,7 @@ import { FindTeamComponent } from './find-team/find-team.component';
 
 const routes: Routes = [
   {path : 'listteams', component : ListTeamsComponent},
-  {path : 'listteam/:teamId', component : FindTeamComponent}
+  {path : 'listteam/:id', component : FindTeamComponent}
 ];
 
 @NgModule({
