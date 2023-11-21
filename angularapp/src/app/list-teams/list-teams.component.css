@@ -22,3 +22,7 @@ a:hover {
     color: rgb(32, 128, 255);
     transition: 400ms;
 }
+
+.color-container {
+    background-color: rgb(230, 230, 230);
+}
