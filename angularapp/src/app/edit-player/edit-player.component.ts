@@ -22,7 +22,7 @@ export class EditPlayerComponent implements OnInit {
   }
 
   getPlayer(teamId : number) {
-    this.ms.getPlayer(teamId).subscribe((data : IPlayer) =>
+    this.ms.getOnePlayer(teamId).subscribe((data : IPlayer) =>
       this.playerdetail = data
     )
   }

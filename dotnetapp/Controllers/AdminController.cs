@@ -58,6 +58,26 @@ namespace dotnetapp.Controllers
             return Ok(data);
            
         }
+
+        [HttpGet]
+ 
+        [Route("ListPlayer/{id}")]
+        public IActionResult GetOnePlayer(int id)
+        {
+            // var data=context.Teams.ToList();
+            if(id==null)
+            {
+                return BadRequest("Id cannot be null");
+            }
+            var data=(from m in context.Players where m.Id==id select m).FirstOrDefault();
+            // var data=context.Teams.Find(id);
+            if(data==null)
+            {
+                return NotFound($"Player {id} not found");
+            }
+            return Ok(data);
+           
+        }
         [HttpPost]
         [Route("AddTeam")]
         public IActionResult Post(Team Team)
