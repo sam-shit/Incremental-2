@@ -36,6 +36,10 @@ export class TeamServiceService {
     return this.httpclient.put<IPlayer>(this.url + '/EditPlayer/' + player.id, player, this.httpOptions)
   }
 
+  DeletePlayer(player : IPlayer) : Observable<IPlayer> {
+    return this.httpclient.delete<IPlayer>(this.url + '/DeletePlayer/' + player.id, this.httpOptions)
+  }
+
   
   
   

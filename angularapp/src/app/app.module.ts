@@ -15,6 +15,7 @@ import { EditTeamComponent } from './edit-team/edit-team.component';
 import { DeleteTeamComponent } from './delete-team/delete-team.component';
 import { EditPlayerComponent } from './edit-player/edit-player.component';
 import { ListPlayerComponent } from './list-player/list-player.component';
+import { DeletePlayerComponent } from './delete-player/delete-player.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ListPlayerComponent } from './list-player/list-player.component';
     EditTeamComponent,
     DeleteTeamComponent,
     EditPlayerComponent,
-    ListPlayerComponent
+    ListPlayerComponent,
+    DeletePlayerComponent
   ],
   imports: [
     BrowserModule,
