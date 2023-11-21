@@ -11,6 +11,8 @@
             <td>{{m.teamId}}</td>
             <td>{{m.teamName}}</td>
             <td><a [routerLink]="['/listteam/',m.teamId]">Details</a></td>
+            <td><a [routerLink]="['/editteam/',m.teamId]">Edit</a></td>
+            <td><a [routerLink]="['/deleteteam/',m.teamId]">Delete</a></td>
         </tr>
     </tbody>
 </table>

@@ -17,13 +17,23 @@ export class TeamServiceService {
     return this.httpclient.get<ITeam[]>(this.url + '/ListTeam')
   }
 
+  getPlayer() : Observable<IPlayer[]> {
+    return this.httpclient.get<IPlayer[]>(this.url + '/ListPlayers')
+  }
+
   getTeam(id : number) : Observable<ITeam> {
     return this.httpclient.get<ITeam>(this.url + '/ListTeam/' + id)
   }
 
-  getPlayer(teamId : number) : Observable<IPlayer[]> {
+  getPlayers(teamId : number) : Observable<IPlayer[]> {
     return this.httpclient.get<IPlayer[]>(this.url + '/DisplayTeamPlayers/(id)?id=' + teamId)
   }
+
+
+
+
+
+
 
   httpOptions = {headers : new HttpHeaders({'Content-type': 'application/json'})}
 
@@ -35,8 +45,17 @@ export class TeamServiceService {
     return this.httpclient.post<ITeam>(this.url + '/AddTeam', team, this.httpOptions)
   }
 
-  EditTeam(id : number)
+  EditTeam(team : ITeam) : Observable<ITeam> {
+    return this.httpclient.put<ITeam>(this.url + '/EditTeam/' + team.teamId, team, this.httpOptions)
+  }
 
+  DeleteTeam(team : ITeam) : Observable<ITeam> {
+    return this.httpclient.delete<ITeam>(this.url + '/DeleteTeam/' + team.teamId, this.httpOptions)
+  }
+
+  EditPlayer(player : IPlayer) : Observable<IPlayer> {
+    return this.httpclient.put<IPlayer>(this.url + '/EditPlayer/' + player.id, player, this.httpOptions)
+  }
 
 
 }

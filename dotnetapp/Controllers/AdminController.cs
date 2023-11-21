@@ -30,6 +30,14 @@ namespace dotnetapp.Controllers
             var data=from m in context.Teams select m;
             return Ok(data);
         }
+
+        [HttpGet]
+        [Route("ListPlayer")]
+        public IActionResult GetTeams()
+        {
+            var data=from m in context.Players select m;
+            return Ok(data);
+        }
  
         [HttpGet]
  
