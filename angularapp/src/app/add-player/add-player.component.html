@@ -14,7 +14,7 @@
         <div>
     
             <select class="form-select" name="teamid" id="teamid" [(ngModel)]="playerdetail.teamid">
-                <option selected>Select Team</option>
+                <!-- <option selected>Select Team</option> -->
                 <option *ngFor="let sd of showdata" [value]="sd.teamId">
                     {{sd.teamName}}
                 </option>
