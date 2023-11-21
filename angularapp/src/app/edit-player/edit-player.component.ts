@@ -18,10 +18,10 @@ export class EditPlayerComponent implements OnInit {
   ngOnInit() {
     const tid = this.ar.snapshot.paramMap.get('id')
     this.teamId = Number(tid)
-    this.getPlayer(this.teamId)
+    this.getPlayers(this.teamId)
   }
 
-  getPlayer(teamId : number) {
+  getPlayers(teamId : number) {
     this.ms.getPlayer(teamId).subscribe((data : IPlayer) =>
       this.playerdetail = data
     )

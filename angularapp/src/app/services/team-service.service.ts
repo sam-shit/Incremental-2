@@ -30,11 +30,6 @@ export class TeamServiceService {
   }
 
 
-
-
-
-
-
   httpOptions = {headers : new HttpHeaders({'Content-type': 'application/json'})}
 
   AddPlayer(player : IPlayer) : Observable<IPlayer> {

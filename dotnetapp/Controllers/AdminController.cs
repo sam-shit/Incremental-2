@@ -33,7 +33,7 @@ namespace dotnetapp.Controllers
 
         [HttpGet]
         [Route("ListPlayer")]
-        public IActionResult GetTeams()
+        public IActionResult GetPlayer()
         {
             var data=from m in context.Players select m;
             return Ok(data);

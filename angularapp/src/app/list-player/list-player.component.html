@@ -1,0 +1,18 @@
+<p>list-player works!</p>
+<p>list-teams works!</p>
+
+<h1>Listing Teams</h1>
+<table class="table">
+    <thead>
+        <th>Team ID</th>
+        <th>Team Name</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let m of playerdata">
+            <td>{{m.id}}</td>
+            <td>{{m.name}}</td>
+            <td><a [routerLink]="['/editteam/',m.id]">Edit</a></td>
+            <td><a [routerLink]="['/deleteteam/',m.id]">Delete</a></td>
+        </tr>
+    </tbody>
+</table>npx
