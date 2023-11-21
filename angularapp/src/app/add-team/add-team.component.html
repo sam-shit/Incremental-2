@@ -1,10 +1,18 @@
-<p>create-detail works!</p>
-<form (ngSubmit)="saveData(teamdetail)" #detailForm="ngForm">
-    <div>
-        <label for="name"></label>
-        <input type="text" name="name" id="name" placeholder="name" [(ngModel)]="teamdetail.teamName">
-    </div>
-
-
-    <input type="submit" value="Save Details">
-</form>
+<!-- <p>create-detail works!</p> -->
+<div class="container team-form" >
+    <form (ngSubmit)="saveData(teamdetail)" #detailForm="ngForm">
+        <!-- <div>
+            <label for="name"></label>
+            <input type="text" name="name" id="name" placeholder="name" [(ngModel)]="teamdetail.teamName">
+        </div>
+     -->
+        <div class="mb-3">
+            <label for="name" class="form-label">Team Name</label>
+            <input type="text" name="name" class="form-control" id="name" [(ngModel)]="teamdetail.teamName">
+            <div id="emailHelp" class="form-text">Please Enter a Team Name</div>
+          </div>
+    
+    
+        <button type="submit" class="btn btn-primary">Add Team</button>
+    </form>
+</div>
