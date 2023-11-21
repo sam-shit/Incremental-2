@@ -13,14 +13,13 @@ export class TeamServiceService {
 
   private url = 'https://8080-addabcfedcbbadfacbbecabcdadeafbbdcaeafe.premiumproject.examly.io/Admin'
 
-  getTeams() : Observable<ITeam[]> {
-    return this.httpclient.get<ITeam[]>(this.url + '/ListTeam')
-  }
 
+  httpOptions = {headers : new HttpHeaders({'Content-type': 'application/json'})}
+  
   getPlayers() : Observable<IPlayer[]> {
-    return this.httpclient.get<IPlayer[]>(this.url + '/ListPlayers')
+    return this.httpclient.get<IPlayer[]>(this.url + '/ListPlayer')
   }
-
+  
   getOnePlayer(id : number) : Observable<IPlayer> {
     return this.httpclient.get<IPlayer>(this.url + '/ListPlayer/' + id)
   }
@@ -29,17 +28,27 @@ export class TeamServiceService {
     return this.httpclient.get<IPlayer[]>(this.url + '/DisplayTeamPlayers/(id)?id=' + teamId)
   }
 
-  getTeam(id : number) : Observable<ITeam> {
-    return this.httpclient.get<ITeam>(this.url + '/ListTeam/' + id)
-  }
-
-
-
-  httpOptions = {headers : new HttpHeaders({'Content-type': 'application/json'})}
-
   AddPlayer(player : IPlayer) : Observable<IPlayer> {
     return this.httpclient.post<IPlayer>(this.url + '/AddPlayer', player, this.httpOptions)
   }
+
+  EditPlayer(player : IPlayer) : Observable<IPlayer> {
+    return this.httpclient.put<IPlayer>(this.url + '/EditPlayer/' + player.id, player, this.httpOptions)
+  }
+
+  
+  
+  
+
+  
+  getTeams() : Observable<ITeam[]> {
+    return this.httpclient.get<ITeam[]>(this.url + '/ListTeam')
+  }
+
+  getTeam(id : number) : Observable<ITeam> {
+    return this.httpclient.get<ITeam>(this.url + '/ListTeam/' + id)
+  }
+  
 
   AddTeam(team : ITeam) : Observable<ITeam> {
     return this.httpclient.post<ITeam>(this.url + '/AddTeam', team, this.httpOptions)
@@ -53,9 +62,7 @@ export class TeamServiceService {
     return this.httpclient.delete<ITeam>(this.url + '/DeleteTeam/' + team.teamId, this.httpOptions)
   }
 
-  EditPlayer(player : IPlayer) : Observable<IPlayer> {
-    return this.httpclient.put<IPlayer>(this.url + '/EditPlayer/' + player.id, player, this.httpOptions)
-  }
+
 
 
 }

@@ -12,27 +12,27 @@ export class EditPlayerComponent implements OnInit {
 
   constructor(private ms : TeamServiceService, private ar : ActivatedRoute, private router : Router) { }
 
-  // playerdetail : IPlayer = {id : 0, teamid : 0, name : '', age : 0, category : '', biddingprice : 0}
-  // id : number
+  playerdetail : IPlayer = {id : 0, teamid : 0, name : '', age : 0, category : '', biddingprice : 0}
+  id : number
 
   ngOnInit() {
-    // const tid = this.ar.snapshot.paramMap.get('id')
-    // this.id = Number(tid)
-    // this.getPlayer(this.id)
+    const tid = this.ar.snapshot.paramMap.get('id')
+    this.id = Number(tid)
+    this.getPlayer(this.id)
   }
 
-  // getPlayer(id : number) {
-  //   this.ms.getOnePlayer(id).subscribe((data : IPlayer) =>
-  //     this.playerdetail = data
-  //   )
-  // }
+  getPlayer(id : number) {
+    this.ms.getOnePlayer(id).subscribe((data : IPlayer) =>
+      this.playerdetail = data
+    )
+  }
 
-  // saveData(movie : IPlayer) : void {
-  //   this.playerdetail = movie
-  //   this.ms.EditPlayer(this.playerdetail).subscribe(() => {
-  //     alert("Data Edited")
-  //     this.router.navigate(['/listteam'])
-  //   })
-  // }
+  saveData(movie : IPlayer) : void {
+    this.playerdetail = movie
+    this.ms.EditPlayer(this.playerdetail).subscribe(() => {
+      alert("Data Edited")
+      this.router.navigate(['/listteam'])
+    })
+  }
 
 }
