@@ -1,10 +1,11 @@
 
 <!-- <h1>Listing Teams</h1> -->
-<table class="table">
-    <p>list-teams works!</p>
+<div class="container">
+<table class="table table-striped">
+    <h1>List Players</h1>
     <thead>
-        <th>Team ID</th>
-        <th>Team Name</th>
+        <th>Player ID</th>
+        <th>Player Name</th>
     </thead>
     <tbody>
         <tr *ngFor="let m of playerdata">
@@ -14,4 +15,5 @@
             <td><a [routerLink]="['/deleteplayer/',m.id]">Delete</a></td>
         </tr>
     </tbody>
-</table>npx
+</table>
+</div>
