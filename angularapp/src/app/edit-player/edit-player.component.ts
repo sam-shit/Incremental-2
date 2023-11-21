@@ -14,11 +14,13 @@ export class EditPlayerComponent implements OnInit {
 
   playerdetail : IPlayer = {id : 0, teamid : 0, name : '', age : 0, category : '', biddingprice : 0}
   id : number
+  showdata : any[] = []
 
   ngOnInit() {
     const tid = this.ar.snapshot.paramMap.get('id')
     this.id = Number(tid)
     this.getPlayer(this.id)
+    this.ms.getTeams().subscribe(data => {this.showdata.push(...data)})
   }
 
   getPlayer(id : number) {
@@ -31,7 +33,7 @@ export class EditPlayerComponent implements OnInit {
     this.playerdetail = movie
     this.ms.EditPlayer(this.playerdetail).subscribe(() => {
       alert("Data Edited")
-      this.router.navigate(['/listteam'])
+      this.router.navigate(['/listteams'])
     })
   }
 
