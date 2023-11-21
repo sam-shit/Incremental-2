@@ -15,16 +15,6 @@
 
         
         <br>
-    
-        <div>
-            <label for="select" class="form-label">Select Team</label>
-            <select class="form-select" name="teamid" id="teamid" [(ngModel)]="playerdetail.teamid" disabled>
-                <!-- <option selected>Select Team</option> -->
-                <option *ngFor="let sd of showdata" [value]="sd.teamId">
-                    {{sd.teamName}}
-                </option>
-            </select>
-        </div>
         
         <br>
     
@@ -48,11 +38,6 @@
 
         <br>
         
-    
-        <div class="mb-3">
-            <label for="biddingprice" class="form-label">Player Bidding Price</label>
-            <input type="text" name="biddingprice" class="form-control" id="biddingprice" [(ngModel)]="playerdetail.biddingprice" disabled>
-        </div>
 
         <br>
         
@@ -69,7 +54,7 @@
     
     
   
-        <button type="submit" class="btn btn-outline-secondary">Add Player</button>
+        <button type="submit" class="btn btn-outline-secondary">Delete Player</button>
 
     </form>
 </div>
