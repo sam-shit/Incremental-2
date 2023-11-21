@@ -13,7 +13,7 @@ export class DeletePlayerComponent implements OnInit {
   constructor(private ms : TeamServiceService, private ar : ActivatedRoute, private router : Router) { }
 
   id : number
-  teamdetail : IPlayer = {id : 0, teamid : 0, name : '', age : 0, category : '', biddingprice : 0}
+  playerdetail : IPlayer = {id : 0, teamid : 0, name : '', age : 0, category : '', biddingprice : 0}
 
   ngOnInit() {
     const tid = this.ar.snapshot.paramMap.get('id')
@@ -23,15 +23,15 @@ export class DeletePlayerComponent implements OnInit {
 
   getPlayer(id : number) {
     this.ms.getOnePlayer(id).subscribe((data : IPlayer) => 
-      this.teamdetail = data
+      this.playerdetail = data
     )
   }
 
   saveData(player : IPlayer) : void {
-    this.teamdetail = player
-    this.ms.DeletePlayer(this.teamdetail).subscribe(() => {
+    this.playerdetail = player
+    this.ms.DeletePlayer(this.playerdetail).subscribe(() => {
       alert("Record Deleted")
-      this.router.navigate(['/listmovies'])
+      this.router.navigate(['/listteams'])
     })
   }
 

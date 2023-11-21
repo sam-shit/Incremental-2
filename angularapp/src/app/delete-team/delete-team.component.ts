@@ -31,7 +31,7 @@ export class DeleteTeamComponent implements OnInit {
     this.teamdetail = team
     this.ms.DeleteTeam(this.teamdetail).subscribe(() => {
       alert("Record Deleted")
-      this.router.navigate(['/listmovies'])
+      this.router.navigate(['/listteams'])
     })
   }
 
