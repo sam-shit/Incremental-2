@@ -17,7 +17,7 @@ export class TeamServiceService {
     return this.httpclient.get<ITeam[]>(this.url + '/ListTeam')
   }
 
-  getPlayer() : Observable<IPlayer[]> {
+  getPlayers() : Observable<IPlayer[]> {
     return this.httpclient.get<IPlayer[]>(this.url + '/ListPlayers')
   }
 
@@ -25,7 +25,7 @@ export class TeamServiceService {
     return this.httpclient.get<ITeam>(this.url + '/ListTeam/' + id)
   }
 
-  getPlayers(teamId : number) : Observable<IPlayer[]> {
+  getPlayer(teamId : number) : Observable<IPlayer[]> {
     return this.httpclient.get<IPlayer[]>(this.url + '/DisplayTeamPlayers/(id)?id=' + teamId)
   }
 
