@@ -11,8 +11,8 @@
         <tr *ngFor="let m of playerdata">
             <td>{{m.id}}</td>
             <td>{{m.name}}</td>
-            <td><a [routerLink]="['/editteam/',m.id]">Edit</a></td>
-            <td><a [routerLink]="['/deleteteam/',m.id]">Delete</a></td>
+            <td><a [routerLink]="['/editplayer/',m.id]">Edit</a></td>
+            <td><a [routerLink]="['/deleteplayer/',m.id]">Delete</a></td>
         </tr>
     </tbody>
 </table>npx

@@ -34,7 +34,7 @@ export class FindTeamComponent implements OnInit {
   }
 
   getPlayer(id : number) {
-    this.ms.getPlayers(id).subscribe((data : IPlayer[]) => {
+    this.ms.getPlayer(id).subscribe((data : IPlayer[]) => {
       this.playerdata = data
       console.log(this.playerdata)
     })

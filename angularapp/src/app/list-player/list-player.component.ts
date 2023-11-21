@@ -12,7 +12,7 @@ export class ListPlayerComponent implements OnInit {
   playerdata : IPlayer[] = []
 
   constructor(private ms : TeamServiceService) {
-      this.ms.getPlayer().subscribe(data => {this.playerdata.push(...data)})
+      this.ms.getPlayers().subscribe(data => {this.playerdata.push(...data)})
       console.log(this.playerdata)
   }
 

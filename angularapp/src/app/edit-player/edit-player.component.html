@@ -1,26 +1,19 @@
-<p>create-detail works!</p>
-<form (ngSubmit)="saveData(playerdetail)" #detailForm="ngForm">
+<!-- <p>create-detail works!</p>
+<form (ngSubmit)="saveData(playerdetail)" #playerForm="ngForm">
+    <div>
+        <label for="teamid"></label>
+        <input type="text" name="teamid" id="teamid" placeholder="teamid" [(ngModel)]="playerdetail.teamid">
+    </div>
+
+
     <div>
         <label for="name"></label>
         <input type="text" name="name" id="name" placeholder="name" [(ngModel)]="playerdetail.name">
     </div>
 
     <div>
-        <select name="teamid" id="teamid" [(ngModel)]="playerdetail.teamid">
-            <option *ngFor="let sd of showdata" [value]="sd.teamId">
-                {{sd.teamName}}
-            </option>
-        </select>
-    </div>
-
-    <div>
         <label for="age"></label>
         <input type="text" name="age" id="age" placeholder="age" [(ngModel)]="playerdetail.age">
-    </div>
-
-    <div>
-        <label for="category"></label>
-        <input type="text" name="category" id="category" placeholder="category" [(ngModel)]="playerdetail.category">
     </div>
 
     <div>
@@ -31,4 +24,4 @@
 
 
     <input type="submit" value="Save Details">
-</form>
+</form> -->

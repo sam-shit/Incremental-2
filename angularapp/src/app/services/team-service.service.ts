@@ -24,14 +24,15 @@ export class TeamServiceService {
   getOnePlayer(id : number) : Observable<IPlayer> {
     return this.httpclient.get<IPlayer>(this.url + '/ListPlayer/' + id)
   }
+  
+  getPlayer(teamId : number) : Observable<IPlayer[]> {
+    return this.httpclient.get<IPlayer[]>(this.url + '/DisplayTeamPlayers/(id)?id=' + teamId)
+  }
 
   getTeam(id : number) : Observable<ITeam> {
     return this.httpclient.get<ITeam>(this.url + '/ListTeam/' + id)
   }
 
-  getPlayer(teamId : number) : Observable<IPlayer[]> {
-    return this.httpclient.get<IPlayer[]>(this.url + '/DisplayTeamPlayers/(id)?id=' + teamId)
-  }
 
 
   httpOptions = {headers : new HttpHeaders({'Content-type': 'application/json'})}
